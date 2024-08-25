@@ -17,6 +17,25 @@ provider:
             - dynamodb:DeleteItem
           Resource: arn:aws:dynamodb:${self:provider.region}:*:table/CoffeeOrders-${self:provider.stage}
 
+cors:
+    origins: "*"
+    headers:
+      - content-type
+      - content-disposition
+      - x-amz-date
+      - authorization
+      - x-api-Key
+      - x-amz-security-token
+      - x-amz-user-agent
+      - x-b3-spanid
+      - x-b3-traceid
+      - x-amz-metadata-directive
+
+build:
+  method: bundle
+  sourceMaps: true
+  include: 'dist/**'
+  
 functions:
   createCofee:
     handler: createCoffee.handler
@@ -71,3 +90,6 @@ resources:
           - AttributeName: CustomerName
             KeyType: RANGE
         BillingMode: PAY_PER_REQUEST
+
+plugins:
+  - serverless-offline

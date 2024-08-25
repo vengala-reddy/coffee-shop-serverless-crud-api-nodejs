@@ -4,11 +4,17 @@
   "description": "Build a Serverless Framework REST API with AWS API Gateway which supports CRUD functionality (Create, Read, Update, Delete) with API Gateway, Lambda, DynamoDB, Serverless Framework, Node.js and Github Actions",
   "main": "get-coffee.js",
   "scripts": {
+    "serverless": "serverless",
+    "build": "rimraf ./dist",
+    "srun": "npm run build && serverless offline --verbose",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
     "aws-sdk": "^2.1682.0",
     "serverless": "^4.2.3"
+  },
+  "devDependencies": {
+    "serverless-offline": "^13.7.0"
   },
   "keywords": [
     "Serverless",
