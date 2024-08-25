@@ -1,7 +1,7 @@
 const AWS = require('aws-sdk');
 const dynamoDb = new AWS.DynamoDB.DocumentClient();
 
-module.exports.handler = async (event) => {
+export const handler = async (event) => {
     const requestBody = JSON.parse(event.body);
     const { order_id, new_status, customer_name } = requestBody;
 

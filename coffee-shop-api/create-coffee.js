@@ -2,7 +2,7 @@ const AWS = require('aws-sdk');
 const dynamoDb = new AWS.DynamoDB.DocumentClient();
 const { v4: uuidv4 } = require('uuid');
 
-module.exports.handler = async (event) => {
+export const handler = async (event) => {
     const requestBody = JSON.parse(event.body);
     const customerName = requestBody.customer_name;
     const coffeeBlend = requestBody.coffee_blend;

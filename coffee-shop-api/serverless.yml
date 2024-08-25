@@ -41,7 +41,7 @@ build:
   
 functions:
   createCofee:
-    handler: createCoffee.handler
+    handler: dist/src/createCoffee.handler
     environment:
       COFFEE_ORDERS_TABLE: CoffeeOrders-${self:provider.stage}
     events:
@@ -52,7 +52,7 @@ functions:
           cors: ${self:custom.cors}
   
   getCoffee:
-    handler: getCoffee.handler
+    handler: dist/src/getCoffee.handler
     environment:
       COFFEE_ORDERS_TABLE: CoffeeOrders-${self:provider.stage}
     events:
@@ -63,7 +63,7 @@ functions:
           cors: ${self:custom.cors}
 
   updateCoffee:
-    handler: updateCoffee.handler
+    handler: dist/src/updateCoffee.handler
     environment:
       COFFEE_ORDERS_TABLE: CoffeeOrders-${self:provider.stage}
     events:
@@ -74,7 +74,7 @@ functions:
           cors: ${self:custom.cors}
 
   deleteCoffee:
-    handler: deleteCoffee.handler
+    handler: dist/src/deleteCoffee.handler
     environment:
       COFFEE_ORDERS_TABLE: CoffeeOrders-${self:provider.stage}
     events:

@@ -1,7 +1,7 @@
 const AWS = require('aws-sdk');
 const dynamoDb = new AWS.DynamoDB.DocumentClient();
 
-module.exports.handler = async () => {
+export const handler = async () => {
     const params = {
         TableName: process.env.COFFEE_ORDERS_TABLE,
     };
