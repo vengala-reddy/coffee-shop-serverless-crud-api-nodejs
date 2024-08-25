@@ -1,5 +1,20 @@
 service: coffee-shop-api
 frameworkVersion: '4'
+custom:
+  cors:
+    origins: "*"
+    headers:
+      - content-type
+      - content-disposition
+      - x-amz-date
+      - authorization
+      - x-api-Key
+      - x-amz-security-token
+      - x-amz-user-agent
+      - x-b3-spanid
+      - x-b3-traceid
+      - x-amz-metadata-directive
+
 provider:
   name: aws
   runtime: nodejs20.x
@@ -17,19 +32,7 @@ provider:
             - dynamodb:DeleteItem
           Resource: arn:aws:dynamodb:${self:provider.region}:*:table/CoffeeOrders-${self:provider.stage}
 
-cors:
-    origins: "*"
-    headers:
-      - content-type
-      - content-disposition
-      - x-amz-date
-      - authorization
-      - x-api-Key
-      - x-amz-security-token
-      - x-amz-user-agent
-      - x-b3-spanid
-      - x-b3-traceid
-      - x-amz-metadata-directive
+
 
 build:
   method: bundle
@@ -45,6 +48,8 @@ functions:
       - http:
           path: coffee
           method: post
+          integration: lambda-proxy
+          cors: ${self:custom.cors}
   
   getCoffee:
     handler: getCoffee.handler
@@ -54,6 +59,8 @@ functions:
       - http:
           path: coffee
           method: get
+          integration: lambda-proxy
+          cors: ${self:custom.cors}
 
   updateCoffee:
     handler: updateCoffee.handler
@@ -63,6 +70,8 @@ functions:
       - http:
           path: coffee
           method: put
+          integration: lambda-proxy
+          cors: ${self:custom.cors}
 
   deleteCoffee:
     handler: deleteCoffee.handler
@@ -72,6 +81,8 @@ functions:
       - http:
           path: coffee
           method: delete
+          integration: lambda-proxy
+          cors: ${self:custom.cors}
 
 resources:
   Resources:
