@@ -13,9 +13,6 @@
     "aws-sdk": "^2.1682.0",
     "serverless": "^4.2.3"
   },
-  "devDependencies": {
-    "serverless-offline": "^13.7.0"
-  },
   "keywords": [
     "Serverless",
     "AWS",
