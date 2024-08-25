@@ -69,5 +69,5 @@ resources:
           - AttributeName: OrderId
             KeyType: HASH
           - AttributeName: CustomerName
-            keyType: RANGE
+            KeyType: RANGE
         BillingMode: PAY_PER_REQUEST
