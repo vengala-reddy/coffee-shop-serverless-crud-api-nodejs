@@ -1,0 +1,25 @@
+{
+  "name": "coffee-shop-api",
+  "version": "1.0.0",
+  "description": "Build a Serverless Framework REST API with AWS API Gateway which supports CRUD functionality (Create, Read, Update, Delete) with API Gateway, Lambda, DynamoDB, Serverless Framework, Node.js and Github Actions",
+  "main": "get-coffee.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "aws-sdk": "^2.1682.0",
+    "serverless": "^4.2.3"
+  },
+  "keywords": [
+    "Serverless",
+    "AWS",
+    "API Gateway",
+    "Lambda",
+    "DynamoDB",
+    "Serverless Framework",
+    "Node.js",
+    "Github Actions"
+  ],
+  "author": "Vengala Reddy Mooli",
+  "license": "ISC"
+}
